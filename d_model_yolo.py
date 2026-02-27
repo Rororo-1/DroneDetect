@@ -44,7 +44,7 @@ data = {
     'nc': 13,
     'names': ['1','2','3','4','5','6','7','8','9','10','11','12','13']
 }
-with open('dataset/data_yaml.yaml', 'w', encoding='utf-8') as file:
+with open('dataset/data_yaml.yaml', 'w') as file:
     yaml.dump(data, file, sort_keys=False)
 
 model = YOLO("yolo12m.pt")
@@ -57,4 +57,5 @@ metrics = model.val(data='dataset/data_yaml.yaml', split='test')
 print(metrics.box.map)      
 print(metrics.box.map50)    
 print(metrics.box.mp)      
+
 print(metrics.box.mr)       
